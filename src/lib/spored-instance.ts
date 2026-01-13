@@ -1,4 +1,4 @@
-import Axios, { AxiosRequestConfig } from 'axios'
+import Axios, { type AxiosRequestConfig } from 'axios'
 
 export const SPORED_AXIOS_INSTANCE = Axios.create({
   baseURL: (import.meta.env.VITE_SPORED_API_URL || 'http://localhost:8083') + '/api/v1/spored',

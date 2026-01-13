@@ -117,7 +117,7 @@ const loadData = async () => {
 
     // Try to load existing reservations (may fail with 403 for regular users)
     try {
-      const reservationsData = await reservationsList({ time_slot_id: timeslotId.value, limit: 1000 })
+      const reservationsData = await reservationsList({ limit: 1000 })
       existingReservations.value = reservationsData.data || []
     } catch (reservationError) {
       // If we can't fetch reservations (403), continue without them

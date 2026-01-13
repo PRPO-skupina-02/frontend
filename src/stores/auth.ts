@@ -14,8 +14,8 @@ export function useAuth() {
   }
 
   const setTokens = (tokens: ApiTokenResponse) => {
-    accessToken.value = tokens.access_token
-    localStorage.setItem('access_token', tokens.access_token)
+    accessToken.value = tokens.access_token ?? null
+    localStorage.setItem('access_token', tokens.access_token ?? '')
     if (tokens.refresh_token) {
       localStorage.setItem('refresh_token', tokens.refresh_token)
     }

@@ -29,7 +29,7 @@ const loadingSchedule = ref(false)
 
 // Format date to YYYY-MM-DD
 const formatDate = (date: Date): string => {
-  return date.toISOString().split('T')[0]
+  return date.toISOString().split('T')[0] as string
 }
 
 const formattedDate = computed(() => formatDate(selectedDate.value))
@@ -84,11 +84,11 @@ const loadSchedule = async () => {
 
   loadingSchedule.value = true
   const minLoadingTime = new Promise(resolve => setTimeout(resolve, 700))
-  
+
   try {
     // Load movies and rooms in parallel
     const [moviesResponse, roomsResponse] = await Promise.all([
-      moviesList({ limit: 100, active: true }),
+      moviesList({ limit: 100 }),
       roomsList(selectedTheaterId.value, { limit: 100 }),
     ])
 
@@ -105,7 +105,7 @@ const loadSchedule = async () => {
 
     const timeslotsResponses = await Promise.all(timeslotsPromises)
     timeslots.value = timeslotsResponses.flatMap((response) => response.data || [])
-    
+
     // Wait for minimum loading time before hiding skeleton
     await minLoadingTime
   } catch (error) {
