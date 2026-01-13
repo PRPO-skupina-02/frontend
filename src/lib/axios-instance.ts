@@ -1,4 +1,4 @@
-import Axios, { AxiosRequestConfig } from 'axios'
+import Axios, { type AxiosRequestConfig } from 'axios'
 
 export const AXIOS_INSTANCE = Axios.create({
   baseURL: (import.meta.env.VITE_AUTH_API_URL || 'http://localhost:8082') + '/api/v1/auth',
