@@ -34,13 +34,13 @@ const handleLogin = async () => {
   try {
     loading.value = true
     error.value = ''
-    
+
     const tokens = await login({ email: loginForm.value.email, password: loginForm.value.password })
     setTokens(tokens)
-    
+
     const userData = await getCurrentUser()
     setUser(userData)
-    
+
     router.push('/')
   } catch (err: any) {
     error.value = err.response?.data?.message || 'Login failed. Please check your credentials.'
@@ -53,19 +53,19 @@ const handleRegister = async () => {
   try {
     loading.value = true
     error.value = ''
-    
+
     await register(registerForm.value)
-    
+
     // Auto login after registration
-    const tokens = await login({ 
-      email: registerForm.value.email, 
-      password: registerForm.value.password 
+    const tokens = await login({
+      email: registerForm.value.email,
+      password: registerForm.value.password
     })
     setTokens(tokens)
-    
+
     const userData = await getCurrentUser()
     setUser(userData)
-    
+
     router.push('/')
   } catch (err: any) {
     error.value = err.response?.data?.message || 'Registration failed. Please try again.'
@@ -133,7 +133,7 @@ const toggleMode = () => {
               required
             />
           </div>
-          
+
           <div v-if="error" class="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
             {{ error }}
           </div>

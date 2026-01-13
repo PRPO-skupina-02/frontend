@@ -1,7 +1,7 @@
 import Axios, { AxiosRequestConfig } from 'axios'
 
 export const AXIOS_INSTANCE = Axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: (import.meta.env.VITE_AUTH_API_URL || 'http://localhost:8082') + '/api/v1/auth',
 })
 
 // Add auth token to requests
