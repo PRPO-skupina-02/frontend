@@ -22,3 +22,6 @@ export * from "./modelsUserRole";
 export * from "./refreshTokenBody";
 export * from "./usersListParams";
 export * from "./verifyTokenBody";
+export * from "./requestPaginatedResponse";
+export * from "./usersList200";
+export * from "./usersList200AllOf";

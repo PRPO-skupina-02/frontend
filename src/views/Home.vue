@@ -57,7 +57,7 @@ const features = [
                 <path d="m9 18 6-6-6-6" />
               </svg>
             </Button>
-            <Button size="lg" variant="outline" @click="router.push('/reservations')">
+            <Button size="lg" variant="outline" @click="router.push('/my-reservations')">
               My Reservations
             </Button>
           </div>
@@ -92,7 +92,7 @@ const features = [
           <p class="mb-6 text-muted-foreground">
             Create an account or log in to start booking your favorite movies today
           </p>
-          <Button size="lg" @click="router.push('/reservations')">
+          <Button size="lg" @click="router.push('/schedule')">
             Make a Reservation
           </Button>
         </div>

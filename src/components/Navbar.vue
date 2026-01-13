@@ -28,6 +28,11 @@ const handleLogout = () => {
   router.push('/login')
 }
 
+const goToMyReservations = () => {
+  closeDropdown()
+  router.push('/my-reservations')
+}
+
 const goToSettings = () => {
   closeDropdown()
   router.push('/settings')
@@ -72,7 +77,7 @@ const getInitials = (firstName?: string, lastName?: string) => {
       <div class="flex items-center space-x-4">
         <template v-if="isLoggedIn">
           <div ref="dropdownRef" class="relative">
-            <button 
+            <button
               @click="toggleDropdown"
               class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-accent hover:text-accent-foreground px-3 py-2"
             >
@@ -85,7 +90,7 @@ const getInitials = (firstName?: string, lastName?: string) => {
                 </AvatarFallback>
               </Avatar>
             </button>
-            
+
             <!-- Dropdown Menu -->
             <Transition
               enter-active-class="transition ease-out duration-100"
@@ -95,7 +100,7 @@ const getInitials = (firstName?: string, lastName?: string) => {
               leave-from-class="transform opacity-100 scale-100"
               leave-to-class="transform opacity-0 scale-95"
             >
-              <div 
+              <div
                 v-if="isDropdownOpen"
                 class="absolute right-0 mt-2 w-56 origin-top-right rounded-md border bg-popover p-1 text-popover-foreground shadow-md z-50"
               >
@@ -106,7 +111,35 @@ const getInitials = (firstName?: string, lastName?: string) => {
                   {{ user?.email }}
                 </div>
                 <div class="my-1 h-px bg-border"></div>
-                
+
+                <button
+                  @click="goToMyReservations"
+                  class="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="mr-2 h-4 w-4"
+                  >
+                    <path d="M8 2v4" />
+                    <path d="M16 2v4" />
+                    <rect width="18" height="18" x="3" y="4" rx="2" />
+                    <path d="M3 10h18" />
+                    <path d="M8 14h.01" />
+                    <path d="M12 14h.01" />
+                    <path d="M16 14h.01" />
+                    <path d="M8 18h.01" />
+                    <path d="M12 18h.01" />
+                    <path d="M16 18h.01" />
+                  </svg>
+                  My Reservations
+                </button>
+
                 <button
                   @click="goToSettings"
                   class="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
@@ -126,9 +159,9 @@ const getInitials = (firstName?: string, lastName?: string) => {
                   </svg>
                   Settings
                 </button>
-                
+
                 <div class="my-1 h-px bg-border"></div>
-                
+
                 <button
                   @click="handleLogout"
                   class="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"

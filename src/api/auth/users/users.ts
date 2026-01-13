@@ -9,6 +9,7 @@ import type {
   ApiAdminCreateUserRequest,
   ApiAdminUpdateUserRequest,
   ApiUserResponse,
+  UsersList200,
   UsersListParams,
 } from ".././model";
 
@@ -19,11 +20,7 @@ import { customInstance } from "../../../lib/axios-instance";
  * @summary List users
  */
 export const usersList = (params?: UsersListParams) => {
-  return customInstance<ApiUserResponse[]>({
-    url: `/users`,
-    method: "GET",
-    params,
-  });
+  return customInstance<UsersList200>({ url: `/users`, method: "GET", params });
 };
 /**
  * Create a new user with any role (admin only)

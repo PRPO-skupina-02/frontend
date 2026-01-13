@@ -4,6 +4,7 @@ import Home from '@/views/Home.vue'
 import Auth from '@/views/Auth.vue'
 import Schedule from '@/views/Schedule.vue'
 import Reservations from '@/views/Reservations.vue'
+import MyReservations from '@/views/MyReservations.vue'
 import Settings from '@/views/Settings.vue'
 
 const router = createRouter({
@@ -28,6 +29,12 @@ const router = createRouter({
       path: '/reservations',
       name: 'reservations',
       component: Reservations,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/my-reservations',
+      name: 'my-reservations',
+      component: MyReservations,
       meta: { requiresAuth: true },
     },
     {
