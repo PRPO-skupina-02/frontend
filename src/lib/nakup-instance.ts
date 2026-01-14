@@ -1,4 +1,4 @@
-import Axios, { type AxiosRequestConfig } from 'axios'
+import Axios, { AxiosRequestConfig } from 'axios'
 
 export const NAKUP_AXIOS_INSTANCE = Axios.create({
   baseURL: (import.meta.env.VITE_NAKUP_API_URL || 'http://localhost:8084') + '/api/v1/nakup',
