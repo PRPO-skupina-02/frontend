@@ -1,10 +1,10 @@
 FROM node:24 AS build
 
 # Build arguments for API URLs
-ARG VITE_AUTH_API_URL=https://auth.prpo.timhrovat.com
-ARG VITE_SPORED_API_URL=https://spored.prpo.timhrovat.com
-ARG VITE_NAKUP_API_URL=https://nakup.prpo.timhrovat.com
-ARG VITE_REKLAME_API_URL=https://reklame.prpo.timhrovat.com
+ARG VITE_AUTH_API_URL=https://auth.cinecore.timhrovat.com
+ARG VITE_SPORED_API_URL=https://spored.cinecore.timhrovat.com
+ARG VITE_NAKUP_API_URL=https://nakup.cinecore.timhrovat.com
+ARG VITE_REKLAME_API_URL=https://reklame.cinecore.timhrovat.com
 
 WORKDIR /app
 
